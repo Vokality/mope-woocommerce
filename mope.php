@@ -7,7 +7,7 @@ Description: Mopé Gateway Plugin for WooCommerce
 Version: 1.0.0
 Author: Vokality LLC
 Author URI: https://github.com/Vokality
-License: MIT
+License: GPLv2 or later
 */
 
 add_filter('woocommerce_payment_gateways', 'mope_add_gateway_class');
@@ -36,8 +36,8 @@ function mope_init_gateway_class()
             $this->mope_api_base_url = "https://api.mope.sr/api/";
             $this->icon = 'https://mope.sr/assets/images/mope-logo.svg';
             $this->has_fields = true;
-            $this->method_title = 'Mopé Mobile Wallet';
-            $this->method_description = 'Met de Mopé Payment Gateway kun je gemakkelijk en veilig betalen en ontvangen.';
+            $this->method_title = 'Mopé Payment Gateway';
+            $this->method_description = 'Pay quickly and securely with Mopé Mobile wallets.';
 
             $this->supports = array(
                 'products'

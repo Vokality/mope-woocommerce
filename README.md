@@ -7,8 +7,8 @@ A WooCommerce Payment Gateway Plugin
 - Mopé API Keys
 
 ## Getting started
-- Download the [latest release](https://github.com/Vokality/mope-php/releases/download/1.0.0/mope.zip)
-- Upload the plugin
+- Download the latest release [here](https://github.com/Vokality/mope-php/releases)
+- Upload and activate via the Plugin menu
 - Go to WooCommerce > Settings > Payments and enable `Mopé Mobile Wallet`
 - Then, click on `manage` to add customize the gateway and provide your API keys
 
