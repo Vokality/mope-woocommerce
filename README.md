@@ -13,4 +13,4 @@ A WooCommerce Payment Gateway Plugin
 - Then, click on `manage` to add customize the gateway and provide your API keys
 
 ## Bugs & Feature requests
-If you've found a bug or have a feature requests, you can create an [issue](https://github.com/Vokality/mope-php/issues) 
+If you've found a bug or have a feature request, you can create an [issue](https://github.com/Vokality/mope-php/issues) 
