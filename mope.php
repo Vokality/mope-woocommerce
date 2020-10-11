@@ -158,7 +158,6 @@ function mope_init_gateway_class()
 
             $body = wp_remote_retrieve_body($response);
             $data = json_decode($body);
-            $order->update_status('processing', 'Waiting on user to complete payment');
             $order->update_meta_data('mope_payment_id', $data->id);
             $order->save();
             return array(
