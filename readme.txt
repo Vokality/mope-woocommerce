@@ -1,4 +1,4 @@
-=== Mopé Payment Gateway ===
+=== Payment Gateway for Mopé on WooCommerce ===
 Contributors: vokality
 Tags: mope, suriname, woocommerce, webshop
 Requires at least: 5.1
@@ -12,8 +12,8 @@ A Mopé Gateway Plugin for WooCommerce
 
 == Description ==
 
-# Mopé Php
-A WooCommerce Payment Gateway Plugin
+# Payment Gateway for Mopé on WooCommerce
+A WooCommerce Payment Gateway Plugin.
 
 ## Requirements
 - WordPress
