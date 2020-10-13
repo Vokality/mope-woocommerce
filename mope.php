@@ -36,7 +36,7 @@ function mope_init_gateway_class()
         {
             $this->id = 'mope';
             $this->mope_api_base_url = "https://api.mope.sr/api/";
-            $this->icon = 'https://mope.sr/assets/images/mope-logo.svg';
+            $this->icon = 'https://i.imgur.com/HoZMD3Y.png';
             $this->has_fields = true;
             $this->method_title = 'Mopé Payment Gateway';
             $this->method_description = 'Pay quickly and securely with Mopé Mobile wallets.';
