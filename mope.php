@@ -7,6 +7,8 @@ Description: A Mopé Gateway Plugin for WooCommerce
 Version: 1.0.0
 Author: Vokality LLC
 Author URI: https://github.com/Vokality
+Requires at least: 5.1
+Requires PHP: 7.2
 License: GPLv2 or later
 */
 
@@ -61,7 +63,6 @@ function mope_init_gateway_class()
                 )
             );
 
-            // This action hook saves the Mope settings
             add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
 
             str_replace('https:', 'http:', add_query_arg('wc-api', 'WC_Gateway_Mope', home_url('/')));
@@ -115,7 +116,6 @@ function mope_init_gateway_class()
                     'description' => 'Text that will be used to describe the transaction in a buyers Mopé Wallet',
                 )
             );
-
         }
 
         public function process_payment($order_id)
@@ -175,8 +175,8 @@ function mope_init_gateway_class()
 
         function mope_callback()
         {
-            $order_id = isset($_GET['order_id']) ? $_GET['order_id'] : null;
-            if (!$order_id) {
+            $order_id = isset($_GET['order_id']) ? sanitize_text_field($_GET['order_id']) : null;
+            if (!$order_id || !is_numeric($order_id)) {
                 wc_add_notice("Invalid order ID", 'error');
                 $this->redirect_to_cart();
             }
