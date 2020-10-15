@@ -4,7 +4,7 @@
 Plugin Name: Payment Gateway for Mopé on WooCommerce
 Plugin URI: https://github.com/Vokality/mope-php
 Description: A Mopé Gateway Plugin for WooCommerce
-Version: 1.0.0
+Version: 1.0.1
 Author: Vokality LLC
 Author URI: https://github.com/Vokality
 Requires at least: 5.1
