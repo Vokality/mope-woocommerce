@@ -149,7 +149,7 @@ function mope_init_gateway_class()
 
             $response_status = wp_remote_retrieve_response_code($response);
             if (intval($response_status) != 201) {
-                wc_add_notice(wp_remote_retrieve_response_code($response), 'error');
+                wc_add_notice("An error occurred communicating with Mopé. Please try again later.", 'error');
                 return array(
                     'result' => 'error',
                     'redirect' => wc_get_checkout_url(),
