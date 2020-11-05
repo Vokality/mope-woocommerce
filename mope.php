@@ -4,7 +4,7 @@
 Plugin Name: Payment Gateway for Mopé on WooCommerce
 Plugin URI: https://github.com/Vokality/mope-php
 Description: A Mopé Gateway Plugin for WooCommerce
-Version: 1.0.3
+Version: 1.0.4
 Author: Vokality LLC
 Author URI: https://github.com/Vokality
 Requires at least: 5.1
@@ -64,7 +64,6 @@ function mope_init_gateway_class()
             );
 
             add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
-
             str_replace('https:', 'http:', add_query_arg('wc-api', 'WC_Gateway_Mope', home_url('/')));
             add_action('woocommerce_api_mope', array($this, 'mope_callback'));
 
@@ -126,7 +125,9 @@ function mope_init_gateway_class()
             $order_total1 = preg_replace("/(?<!\d)([,.])(?!\d)/", "", $order->get_total());
             $order_total_formatted = number_format($order_total1, 2, '', '');
 
-            $returnURL = site_url() . '/wc-api/mope/?order_id=' . $order_id;
+            # use ?wc-api=callback because it works with all permalink setups
+            # https://github.com/woocommerce/woocommerce/issues/23142#issuecomment-476604300
+            $returnURL = site_url() . '?wc-api=mope&order_id=' . $order_id;
 
             $data = array(
                 'description' => $this->transaction_description,
@@ -214,7 +215,7 @@ function mope_init_gateway_class()
             if ($data->status == 'paid') {
                 $order->update_status('completed');
                 wc_reduce_stock_levels($order_id);
-                wp_safe_redirect(site_url() . '/checkout/order-received/' . $order_id . '/');
+                wp_safe_redirect($order->get_checkout_order_received_url());
                 exit;
             }
 
